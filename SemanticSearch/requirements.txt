@@ -1,0 +1,7 @@
+sentence_transformers
+tqdm
+spacy
+faiss-gpu
+pandas
+numpy
+xlrd
