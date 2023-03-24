@@ -13,7 +13,7 @@ if __name__=="__main__":
     df['ATTRI_DES'] = "Attribute is "+ df['ATTRIBUTE'] + " and description is " + df['DESCRIPTION']
 
     # Load model
-    model = Semantic_Search(model_name = "model/all-mpnet-base-v2", available_dataset="dataset/dataset.index")
+    model = Semantic_Search(model_name = "all-mpnet-base-v2", available_dataset="dataset/dataset.index")
 
     # Process dataset
     model.process_dataset(df.ATTRI_DES.tolist())
