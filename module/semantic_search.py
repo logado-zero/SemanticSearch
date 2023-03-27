@@ -57,6 +57,7 @@ class Semantic_Search:
         # Using FAISS
         # encoded with a n-dimensional vector
         self.embed_index = faiss.IndexIDMap(faiss.IndexFlatIP(shape_output[1])) 
+
         self.embed_index.add_with_ids(encoded_data, np.array(range(0, shape_output[0])))
 
         # stored to disk with attri_des.index name.
@@ -102,7 +103,7 @@ class Semantic_Search:
         print('>>>> Results in Total Time: {}'.format(time.time()-t))
         # Collect top k results
         top_k_ids = top_k[1].tolist()[0]
-        top_k_ids = list(np.unique(top_k_ids))
+        top_k_ids = list(top_k_ids)
         top_k_dist = top_k[0].tolist()[0]
         results =  [self.fetch_content_info(dataset, idx, name_content,dist) for dist, idx in zip(top_k_dist,top_k_ids)]
         return results
